@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: voice
   m_EditorClassIdentifier: 
   menus:
+  - Name: beginner_1
+    Chinese: "\u6B22\u8FCE\u6765\u5230\u6B63\u5B97\u6FB3\u95E82\u5A31\u4E50\u573A\uFF0C\n\u9001\u60A8\u4E00\u4EFD\u793C\u7269\uFF0C\u795D\u60A8\u6E38\u620F\u6109\u5FEB\uFF01"
+    English: "welcome to grand macau 2\uFF01\nhere is a coin & gem gift for you! \nplease
+      have fun !"
   - Name: beginner_2
     Chinese: "\u9009\u62E9\u4E00\u4E2A\u673A\u53F0\u5F00\u59CB\u6E38\u620F\u5427\uFF01"
     English: it's time to play now! tap a game to start!
@@ -40,12 +44,6 @@ MonoBehaviour:
     Chinese: "\u53C2\u4E0E\u6392\u884C\u699C\u7ADE\u4E89\uFF0C\n\u8FD9\u5468\u5185\u6BCF\u5929\u90FD\u80FD\u83B7\u5F97\n\u6D77\u91CF\u91D1\u5E01\u3001\u5B9D\u77F3\u5956\u52B1"
     English: "Participate in the leaderboard \ncompetition and get coins and gems
       \nevery day for a week."
-  - Name: disk_full
-    Chinese: "\u78C1\u76D8\u7A7A\u95F4\u4E0D\u8DB3\uFF0C\u4E0D\u80FD\u7F13\u5B58\u89C6\u9891"
-    English: Not enough disk space to cache video
-  - Name: save_share_video
-    Chinese: "\u6B63\u5728\u4FDD\u5B58\u89C6\u9891\u5230\u672C\u5730\uFF0C\u8BF7\u7A0D\u7B49..."
-    English: Saving video to local, please wait...
   - Name: beginner_selec_room
     Chinese: "\u9009\u62E9\u5F53\u524D\u9002\u5408\u60A8\u7684\u5206\u7EA7\u623F\u95F4"
     English: "Choose the rating room \nthat is right for you"
@@ -63,6 +61,9 @@ MonoBehaviour:
       the 12 treasure \nchests above are opened, you will open \nthe three-wheeled
       treasure chest random\nprizes to double the rewards! Up to 888 rewards!"
   - Name: beginner_upload_video
-    Chinese: "\u60A8\u7684\u89C6\u9891\u51FB\u8D25\u4E8698%\u7684\u73A9\u5BB6\uFF0C\n\u4E0A\u4F20\u89C6\u9891\u53C2\u52A0\u6BCF\u5468\u6700\u4F73\u624B\u6C14\u8BC4\u9009\uFF0C\n\u6D77\u91CF\u5B9D\u77F3\u3001\u91D1\u5E01\u7B49\u60A8\u6765\u8D62\u53D6"
-    English: "Your video beat 98% of the players,\nUpload videos to participate in
-      the best \nluck check of the week.Massive gems, \ngold coins, etc. to win you"
+    Chinese: "\u60A8\u7684\u89C6\u9891\u51FB\u8D25\u4E8698%\u7684\u73A9\u5BB6\uFF0C\u4E0A\u4F20\u89C6\u9891\u53C2\u52A0\u6BCF\u5468\u6700\u4F73\u624B\u6C14\u8BC4\u9009\uFF0C\u6D77\u91CF\u5B9D\u77F3\u3001\u91D1\u5E01\u7B49\u60A8\u6765\u8D62\u53D6"
+    English: Your video beat of the players,Upload videos to participate in the best
+      luck check of the week.Massive gems, gold coins, etc. to win you
+  - Name: qqq
+    Chinese: qqq
+    English: qqq

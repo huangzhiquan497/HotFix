@@ -10,12 +10,12 @@ namespace MyTest
 {
     public class VoiceGenerate
     {
-        public static string APIKey = "yq4CGgAIB18r6gvzSAE3CfwS";
-        public static string SecretKey = "mMWL3CgTFzt07v4ouZMqxgbwXWqusoGh";
-        public static string per = "0";
-        public static string pit = "5";
-        public static string spd = "5";
-        private static string Token;
+        public string APIKey = "yq4CGgAIB18r6gvzSAE3CfwS";
+        public string SecretKey = "mMWL3CgTFzt07v4ouZMqxgbwXWqusoGh";
+        public string per = "111";
+        public string pit = "5";
+        public string spd = "5";
+        private string Token;
 
         [Serializable]
         public class TtsResponse
@@ -41,7 +41,7 @@ namespace MyTest
         }
 
 
-        public static IEnumerator InitToken()
+        public IEnumerator InitToken()
         {
             // 拼接请求的URL
             var uri =
@@ -64,7 +64,7 @@ namespace MyTest
             }
         }
 
-        public static IEnumerator Generate(string name, string text, Action<TtsResponse> callback)
+        public IEnumerator Generate(string name, string text, Action<TtsResponse> callback)
         {
             var url = "http://tsn.baidu.com/text2audio";
 

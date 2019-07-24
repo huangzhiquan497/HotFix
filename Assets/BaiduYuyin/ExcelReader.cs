@@ -2,22 +2,16 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using ExcelDataReader;
-using UnityEngine;
 
 namespace MyTest
 {
     public class ExcelReader
     {
-        private string Name = "Voice";
-
-        public List<Voice> SelectMenuTable()
+        public List<Voice> SelectMenuTable(string path, string sheetName)
         {
-            var excelName = Name + ".xls";
-            var sheetName = "sheet1";
-
-            DataRowCollection collect = ReadExcel(excelName, sheetName);
+            DataRowCollection collect = ReadExcel(path, sheetName);
             List<Voice> menuArray = new List<Voice>();
-            for (int i = 1; i < collect.Count; i++)
+            for (var i = 0; i < collect.Count; i++)
             {
                 if (collect[i][1].ToString() == "") continue;
 
@@ -34,13 +28,15 @@ namespace MyTest
         }
 
 
-        DataRowCollection ReadExcel(string excelName, string sheetName)
+        DataRowCollection ReadExcel(string path, string sheetName)
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), excelName);
-            FileStream stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-            IExcelDataReader excelReader = ExcelReaderFactory.CreateBinaryReader(stream);
+            var stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read);
 
-            DataSet result = excelReader.AsDataSet();
+            var excelReader = path.EndsWith(".xls")
+                ? ExcelReaderFactory.CreateBinaryReader(stream)
+                : ExcelReaderFactory.CreateOpenXmlReader(stream);
+
+            var result = excelReader.AsDataSet();
             //int columns = result.Tables[0].Columns.Count;
             //int rows = result.Tables[0].Rows.Count;
 

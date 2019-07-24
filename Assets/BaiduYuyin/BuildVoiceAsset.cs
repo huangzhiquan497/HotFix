@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,11 +10,11 @@ namespace MyTest
         [MenuItem("Tool/Build Voice Scriptable Asset")]
         public static void ExecuteBuild()
         {
-            VoiceMenu holder = CreateInstance<VoiceMenu>();
+            var holder = CreateInstance<VoiceMenu>();
 
             //查询excel表中数据，赋值给asset文件
             var reader = new ExcelReader();
-            holder.menus = reader.SelectMenuTable();
+            holder.menus = reader.SelectMenuTable(Path.Combine(Directory.GetCurrentDirectory(), "Voice.xls"), "sheet1");
 
             string path = "Assets/BaiduYuyin/Resources/voice.asset";
 
@@ -23,27 +24,26 @@ namespace MyTest
             Debug.Log("BuildAsset Success!");
         }
 
-        [MenuItem("Tool/GenerateVoiceInitToken")]
-        public static void GenerateVoiceInitToken()
-        {
-            var go = new GameObject().AddComponent<Fake>();
-
-            go.StartCoroutine(VoiceGenerate.InitToken());
-        }
-
 
         [MenuItem("Tool/GenerateVoice")]
         public static void GenerateVoice()
         {
+            var go = new GameObject().AddComponent<Fake>();
+
+            go.StartCoroutine(DoGenerateVoice());
+        }
+
+        private static IEnumerator DoGenerateVoice()
+        {
+            var generator = new VoiceGenerate();
+            yield return generator.InitToken();
+
             var asset = Resources.Load<VoiceMenu>("voice");
             foreach (var gd in asset.menus)
             {
                 Debug.Log(gd.Name);
-
-                var go = new GameObject().AddComponent<Fake>();
-
-                go.StartCoroutine(VoiceGenerate.Generate($"{gd.Name}_sc", gd.Chinese, null));
-                go.StartCoroutine(VoiceGenerate.Generate($"{gd.Name}_en", gd.English, null));
+                yield return generator.Generate($"{gd.Name}_sc", gd.Chinese, null);
+                yield return generator.Generate($"{gd.Name}_en", gd.English, null);
             }
         }
     }
