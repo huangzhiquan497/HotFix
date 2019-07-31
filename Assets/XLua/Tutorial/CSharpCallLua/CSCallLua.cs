@@ -23,7 +23,7 @@ namespace Tutorial
         c = true
 
         d = {
-           f1 = 12, f2 = 34, 
+           f1 = 12, f2 = 34, f3 = 24,
            1, 2, 3,
            add = function(self, a, b) 
               print('d.add called')
