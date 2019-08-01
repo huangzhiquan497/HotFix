@@ -14,19 +14,20 @@ function UITest.start()
 
     print("ui test start")
     print("injected object", Name)
-    local name = Name:GetComponent(typeof(CS.UnityEngine.UI.Text));
+    local name = transform:Find("Name"):GetComponent(typeof(CS.UnityEngine.UI.Text));
     local inputField = gameObject:GetComponentInChildren(typeof(CS.UnityEngine.UI.InputField));
-    local modifyBtn = transform:Find("Button"):GetComponent(typeof(CS.UnityEngine.UI.Button));
+    local modifyBtn = transform:Find("Button");
 
     name.text = "test start";
-    print(typeof(modifyBtn))
-    modifyBtn.onClick():AddListener(
-            function()
-                print("click")
-                name = inputField.text
-            end
-    );
-
+    if modifyBtn ~= nil
+    then
+        modifyBtn:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(
+                function()
+                    print("click")
+                    name.text = inputField.text
+                end
+        );
+    end
 end
 
 function UITest.update()
