@@ -160,6 +160,15 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(XLuaTest.FooExtension), XLuaTestFooExtensionWrap.__Register);
         
         
+            translator.DelayWrapLoader(typeof(XLuaFramework.LuaHelper), XLuaFrameworkLuaHelperWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(XLuaFramework.LuaViewBehaviour), XLuaFrameworkLuaViewBehaviourWrap.__Register);
+        
+        
+            translator.DelayWrapLoader(typeof(XLuaFramework.TestLua), XLuaFrameworkTestLuaWrap.__Register);
+        
+        
             translator.DelayWrapLoader(typeof(Tutorial.DerivedClass.TestEnumInner), TutorialDerivedClassTestEnumInnerWrap.__Register);
         
         

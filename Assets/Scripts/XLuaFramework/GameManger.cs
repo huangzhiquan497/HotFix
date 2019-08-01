@@ -15,7 +15,6 @@ namespace XLuaFramework
 
         private void Start()
         {
-            LuaManager.Instance.DoString("require 'Test'"); // 从resource加载
             LuaManager.Instance.AddLoader(CustomLoader);
 
             LuaManager.Instance.DoString("require 'Main'"); // 通过自定义 loader 加载
@@ -23,7 +22,7 @@ namespace XLuaFramework
 
         private byte[] CustomLoader(ref string filepath)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "Assets/XluaLogic", $"{filepath}.lua");
+            var path = Path.Combine(Application.dataPath, "XLuaLogic", $"{filepath}.lua");
             return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path));
         }
     }

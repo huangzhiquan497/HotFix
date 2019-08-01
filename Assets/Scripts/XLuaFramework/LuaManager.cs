@@ -33,7 +33,7 @@ namespace XLuaFramework
 
         private void OnDestroy()
         {
-            LuaEnv?.Dispose();
+//            LuaEnv?.Dispose();
         }
     }
 }
