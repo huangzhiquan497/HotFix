@@ -1,0 +1,39 @@
+[
+    
+    {
+        "name" : "XLuaLogic",        
+        "includs" : 
+        [
+            "Assets/XLuaLogic"
+        ],        
+        "dependAssets" : 
+        [
+            "Assets/XLuaLogic/Define.lua.txt",            
+            "Assets/XLuaLogic/GameInit.lua.txt",            
+            "Assets/XLuaLogic/LoaderTest.lua.txt",            
+            "Assets/XLuaLogic/Main.lua.txt",            
+            "Assets/XLuaLogic/TestHotfix.lua.txt",            
+            "Assets/XLuaLogic/UITest.lua.txt"
+        ],        
+        "includeGUIDs" : 
+        [
+            "35f6cea4c1ac3d44db520495e54f947d"
+        ],        
+        "dependGUIDs" : 
+        [
+            "27ba5cd892e8c674f99d58abb87ab4f7",            
+            "a26d6c08c0fb26444b5912c151a59abf",            
+            "50316759300a06c4b82ec3b1489d7872",            
+            "cb8ebc3dad39a384aae6d80d4191c862",            
+            "5c696f7541d0c044c9f5c34408d57ba7",            
+            "dc20285e42ff52b429138808c002ac17"
+        ],        
+        "sceneBundle" : false,        
+        "priority" : 0,        
+        "parent" : "",        
+        "children" : 
+        [
+            
+        ]
+    }
+]

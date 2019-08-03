@@ -22,7 +22,7 @@ namespace XLuaFramework
 
         private byte[] CustomLoader(ref string filepath)
         {
-            var path = Path.Combine(Application.dataPath, "XLuaLogic", $"{filepath}.lua");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "XLuaLogic", $"{filepath}.lua.txt");// 从bundle中下载后保存的路径沙盒
             return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path));
         }
     }
