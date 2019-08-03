@@ -66,6 +66,7 @@
 		<type fullname="XLuaTest.Foo" preserve="all"/>
 		<type fullname="XLuaTest.FooExtension" preserve="all"/>
 		<type fullname="XLuaFramework.LuaHelper" preserve="all"/>
+		<type fullname="XLuaFramework.Injection" preserve="all"/>
 		<type fullname="XLuaFramework.LuaViewBehaviour" preserve="all"/>
 		<type fullname="XLuaFramework.TestLua" preserve="all"/>
 		<type fullname="Tutorial.DerivedClass+TestEnumInner" preserve="all"/>

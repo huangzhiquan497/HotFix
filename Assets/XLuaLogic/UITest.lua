@@ -14,27 +14,25 @@ function UITest.start()
 
     print("ui test start")
     print("injected object", Name)
-    local name = transform:Find("Name"):GetComponent(typeof(CS.UnityEngine.UI.Text));
-    local inputField = gameObject:GetComponentInChildren(typeof(CS.UnityEngine.UI.InputField));
-    local modifyBtn = transform:Find("Button");
+    this.name = transform:Find("Name"):GetComponent(typeof(CS.UnityEngine.UI.Text));
+    this.inputField = gameObject:GetComponentInChildren(typeof(CS.UnityEngine.UI.InputField));
+    this.modifyBtn = transform:Find("GameObject/Button"):GetComponent(typeof(CS.UnityEngine.UI.Button));
 
-    name.text = "test start";
-    if modifyBtn ~= nil
-    then
-        modifyBtn:GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(
-                function()
-                    print("click")
-                    name.text = inputField.text
-                end
-        );
-    end
+    this.name.text = "test start";
+    this.modifyBtn.onClick:AddListener(
+            function()
+                print("click")
+                this.name.text = this.inputField.text
+            end
+    );
+
 end
 
 function UITest.update()
 
     print("ui test update")
-    if CS.UnityEngine.Input.GetMouseButtonDown(1) then
-
+    if CS.UnityEngine.Input.GetMouseButtonDown(1)
+    then
         CS.UnityEngine.Object.Destroy(gameObject);
     end
 end
