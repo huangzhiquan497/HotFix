@@ -68,7 +68,7 @@ public class DownloadBundle : MonoBehaviour
                         continue;
                     }
 
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "XLuaLogic");
+                    var path = Path.Combine(Application.persistentDataPath, "XLuaLogic");
                     if (!Directory.Exists(path))
                     {
                         Directory.CreateDirectory(path);

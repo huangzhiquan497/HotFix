@@ -9,11 +9,11 @@
         "dependAssets" : 
         [
             "Assets/XLuaLogic/Define.lua.txt",            
-            "Assets/XLuaLogic/GameInit.lua",            
-            "Assets/XLuaLogic/LoaderTest.lua",            
-            "Assets/XLuaLogic/Main.lua",            
-            "Assets/XLuaLogic/TestHotfix.lua",            
-            "Assets/XLuaLogic/UITest.lua"
+            "Assets/XLuaLogic/GameInit.lua.txt",            
+            "Assets/XLuaLogic/LoaderTest.lua.txt",            
+            "Assets/XLuaLogic/Main.lua.txt",            
+            "Assets/XLuaLogic/TestHotfix.lua.txt",            
+            "Assets/XLuaLogic/UITest.lua.txt"
         ],        
         "includeGUIDs" : 
         [
@@ -22,11 +22,11 @@
         "dependGUIDs" : 
         [
             "27ba5cd892e8c674f99d58abb87ab4f7",            
-            "eda3f2687f170734d96c4aba14339d77",            
-            "56e763f34661079478055e041c63346b",            
-            "43eedaf422a4e8c46b7de463c791db8c",            
-            "695a9fbb8f5c1604b81ac17a44fb48ad",            
-            "3f237d4baffa5284cbe39eeae446b1e5"
+            "a26d6c08c0fb26444b5912c151a59abf",            
+            "50316759300a06c4b82ec3b1489d7872",            
+            "cb8ebc3dad39a384aae6d80d4191c862",            
+            "5c696f7541d0c044c9f5c34408d57ba7",            
+            "dc20285e42ff52b429138808c002ac17"
         ],        
         "sceneBundle" : false,        
         "priority" : 0,        

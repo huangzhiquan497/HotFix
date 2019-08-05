@@ -1,0 +1,77 @@
+TestPeople = { Name = "", Age = 0 }
+--TestPeople.__index = TestPeople
+
+function TestPeople:New()
+    local o = {};
+    setmetatable(o, TestPeople)
+    self.__index = self;--同上  TestPeople.__index = TestPeople
+    return o
+end
+
+function TestPeople:New(name, age)
+    local o = {};
+    setmetatable(o, TestPeople)
+    self.__index = self;--同上  TestPeople.__index = TestPeople
+    o.Name = name;
+    o.Age = age;
+
+    print(self)
+    print(TestPeople)
+    return o
+end
+
+function TestPeople:ModifyName(newName, age)
+    self.Name = newName;
+    self.Age = age;
+end
+
+
+
+-- 元类
+Rectangle = { area = 0, length = 0, breadth = 0 }
+
+-- 派生类的方法 new
+function Rectangle:new (o, length, breadth)
+    o = o or {}
+    setmetatable(o, self)
+    self.__index = self
+    o.length = length or 0
+    o.breadth = breadth or 0
+    o.area = length * breadth;
+    return o
+end
+
+-- 派生类的方法 printArea
+function Rectangle:printArea ()
+    print("矩形面积为 ", self.area)
+end
+
+function Class(classname, super)
+    local class_info = {}
+    setmetatable(class_info, { __index = function(owner, key)
+        :: recheck ::
+        if key:find("__") or owner.__super == nil then
+            return nil
+        end
+        local res = owner.__super[key]
+        if res then
+            return res
+        else
+            owner = owner.__super
+            goto recheck
+        end
+    end })
+    class_info.classname = classname
+    class_info.__index = class_info
+    class_info.__super = super
+    class_info.new = function(...)
+        local o = {}
+        setmetatable(o, class_info)
+        o.__index = o
+        -- 在这里初始化类的实例对象
+        -- o:ctor(...)
+        -------------------------
+        return o
+    end
+    return class_info
+end

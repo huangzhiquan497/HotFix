@@ -16,6 +16,7 @@ end
 
 function TestHotfix.DOHotfix()
     print("do hot fix")
+    
     xlua.hotfix(CS.XLuaFramework.TestHotfix, {
         Add = function(a, b)
             return a + b;

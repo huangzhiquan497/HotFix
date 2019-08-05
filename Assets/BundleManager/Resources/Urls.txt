@@ -19,7 +19,7 @@
         "WebGL" : "$(DataPath)/../AssetBundle/$(Platform)",        
         "WinStoreApp" : "$(DataPath)/../AssetBundle/$(Platform)"
     },    
-    "bundleTarget" : 1,    
+    "bundleTarget" : 3,    
     "useEditorTarget" : true,    
     "downloadFromOutput" : false,    
     "offlineCache" : false

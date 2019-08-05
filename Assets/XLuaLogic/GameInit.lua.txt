@@ -1,4 +1,5 @@
 require "Define"
+
 GameInit = {};
 
 local this = GameInit;
@@ -31,6 +32,15 @@ function GameInit.Init()
     local Re = Rectangle:new(nil, 5, 20);
     Ra:printArea()
     Re:printArea()
+
+    ------------------------------------
+    local rapidjson = require 'rapidjson'
+    local s = rapidjson.encode(Tony)
+    print('json', s)
+    local a = rapidjson.decode(s);
+    print(a.Name)
+
+
 end
 
 function Event()

@@ -2,9 +2,9 @@
     
     {
         "bundleName" : "XLuaLogic",        
-        "version" : 4,        
-        "crc" : 3612169500,        
-        "size" : 1768,        
+        "version" : 5,        
+        "crc" : 2435987939,        
+        "size" : 2542,        
         "changeTime" : -8586367876885751587,        
         "lastBuildDependencies" : 
         [
@@ -12,6 +12,7 @@
             "Assets/XLuaLogic/GameInit.lua.txt",            
             "Assets/XLuaLogic/Define.lua.txt",            
             "Assets/XLuaLogic/LoaderTest.lua.txt",            
+            "Assets/XLuaLogic/TestPeople.lua.txt",            
             "Assets/XLuaLogic/Main.lua.txt",            
             "Assets/XLuaLogic/UITest.lua.txt"
         ]
