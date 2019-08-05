@@ -1,16 +1,22 @@
+using System;
+using System.Collections.Generic;
+using LitJson;
 using UnityEngine;
-using UnityEngine.UI;
 using XLua;
 
 namespace XLuaFramework
 {
     [LuaCallCSharp]
-    public static class LuaHelper
+    public class LuaHelper
     {
-        public static void Test()
+        public static Dictionary<string, Action<JsonData>> _eventMaps = new Dictionary<string, Action<JsonData>>();
+
+        public static void AddEventListener(string eventType, Action<JsonData> eventData)
         {
-            Debug.Log("test lua call cs");
-//            Object.Instantiate(Resources.Load("UITest"));
+        }
+
+        public static void RemoveEventsListener()
+        {
         }
     }
 }

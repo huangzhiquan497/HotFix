@@ -13,6 +13,24 @@ function GameInit.Init()
     TestHotfix.Add(4, 3);
     TestHotfix.DOHotfix();
     TestHotfix.Add(4, 3);
+    require("TestPeople");
+    local Tony = TestPeople:New("Tony", 20);
+    local Tim = TestPeople:New("Tim", 40);
+    local Jeny = TestPeople:New();
+    print(Tony.Name .. "<====>" .. Tony.Age);
+    print(Tim.Name .. "<====>" .. Tim.Age);
+    print(Jeny.Name .. "<====>" .. Jeny.Age);
+    --print(TestPeople.Name .. "<====>" .. TestPeople.Age);
+    Tony:ModifyName("new tony", 10);
+    Jeny:ModifyName("Jeny", 100);
+    print(Tony.Name .. "<====>" .. Tony.Age);
+    print(Tim.Name .. "<====>" .. Tim.Age);
+    print(Jeny.Name .. "<====>" .. Jeny.Age);
+
+    local Ra = Rectangle:new(nil, 10, 20);
+    local Re = Rectangle:new(nil, 5, 20);
+    Ra:printArea()
+    Re:printArea()
 end
 
 function Event()

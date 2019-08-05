@@ -30,7 +30,7 @@ end
 
 function UITest.update()
 
-    print("ui test update")
+    --print("ui test update")
     if CS.UnityEngine.Input.GetMouseButtonDown(1)
     then
         CS.UnityEngine.Object.Destroy(gameObject);

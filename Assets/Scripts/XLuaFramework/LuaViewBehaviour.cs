@@ -18,22 +18,22 @@ namespace XLuaFramework
         [CSharpCallLua]
         public delegate void delLuaAwake(GameObject obj);
 
-        delLuaAwake luaAwake;
+        private delLuaAwake luaAwake;
 
         [CSharpCallLua]
         public delegate void delLuaStart();
 
-        delLuaStart luaStart;
+        private delLuaStart luaStart;
 
         [CSharpCallLua]
         public delegate void delLuaUpdate();
 
-        delLuaUpdate luaUpdate;
+        private delLuaUpdate luaUpdate;
 
         [CSharpCallLua]
         public delegate void delLuaOnDestroy();
 
-        delLuaOnDestroy luaOnDestroy;
+        private delLuaOnDestroy luaOnDestroy;
 
         public Injection[] injections;
         private LuaTable scriptEnv;

@@ -68,7 +68,6 @@ public class DownloadBundle : MonoBehaviour
                         continue;
                     }
 
-                    Debug.Log(luaTxt.text);
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "XLuaLogic");
                     if (!Directory.Exists(path))
                     {
