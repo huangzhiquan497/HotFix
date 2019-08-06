@@ -781,11 +781,6 @@ namespace XLua
 			    return new XLuaFramework.LuaViewBehaviour.delLuaOnDestroy(__Gen_Delegate_Imp0);
 			}
 		
-		    if (type == typeof(XLuaFramework.TestLua.LuaExecute))
-			{
-			    return new XLuaFramework.TestLua.LuaExecute(__Gen_Delegate_Imp0);
-			}
-		
 		    if (type == typeof(System.Func<double, double, double>))
 			{
 			    return new System.Func<double, double, double>(__Gen_Delegate_Imp1);

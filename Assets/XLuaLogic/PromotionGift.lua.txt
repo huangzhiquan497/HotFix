@@ -1,0 +1,39 @@
+require('Define');
+PromotionGift = {  }
+local this = PromotionGift;
+
+local gameObject;
+local transform;
+
+function PromotionGift.awake(obj)
+    gameObject = obj;
+    transform = obj.transform;
+end
+
+function PromotionGift.start()
+
+
+end
+
+function PromotionGift.update()
+
+
+end
+
+function PromotionGift.ondestroy()
+
+    print("on destory")
+end
+
+function PromotionGift.Show(json)
+    local data = Rapidjson.encode(json);
+    local skus = data.skus;
+    for i = 1, #skus do
+        local j = i;
+        local itemData = skus[j];
+        local item = PromotionItem:New(itemData);
+        local itemObj = this.transform:Find("ItemView" .. j);
+        local itemView = PromotionItemView:InIt(itemObj);
+        itemView:SetData(item)
+    end
+end

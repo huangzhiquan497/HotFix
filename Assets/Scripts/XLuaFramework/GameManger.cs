@@ -8,6 +8,8 @@ namespace XLuaFramework
 {
     public class GameManger : MonoBehaviour
     {
+        [SerializeField] private bool InDevelop;
+
         private void Awake()
         {
             gameObject.AddComponent<LuaManager>();
@@ -22,8 +24,8 @@ namespace XLuaFramework
 
         private byte[] CustomLoader(ref string filepath)
         {
-            var path = Path.Combine(Application.persistentDataPath, "XLuaLogic",
-                $"{filepath}.lua.txt"); // 从bundle中下载后保存的沙盒路径
+            var path = Path.Combine(InDevelop ? Application.dataPath : Application.persistentDataPath,
+                "XLuaLogic", $"{filepath}.lua.txt"); // 从bundle中下载后保存的沙盒路径
             return System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path));
         }
     }

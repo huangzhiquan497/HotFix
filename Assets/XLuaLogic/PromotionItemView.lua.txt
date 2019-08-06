@@ -1,0 +1,16 @@
+PromotionItemView = {}
+local this = PromotionItemView;
+
+local gameObject;
+local transform;
+
+function PromotionItemView:InIt(obj)
+    gameObject = obj;
+    transform = obj.transform;
+    return this;
+end
+
+function PromotionItemView:SetData(data)
+
+
+end

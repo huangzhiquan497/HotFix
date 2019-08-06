@@ -169,16 +169,11 @@ namespace XLua.CSObjectWrap
             translator.DelayWrapLoader(typeof(XLuaFramework.LuaViewBehaviour), XLuaFrameworkLuaViewBehaviourWrap.__Register);
         
         
-            translator.DelayWrapLoader(typeof(XLuaFramework.TestLua), XLuaFrameworkTestLuaWrap.__Register);
-        
-        
             translator.DelayWrapLoader(typeof(Tutorial.DerivedClass.TestEnumInner), TutorialDerivedClassTestEnumInnerWrap.__Register);
         
+        
+        
         }
-        
-        
-        
-        
         
         static void Init(LuaEnv luaenv, ObjectTranslator translator)
         {

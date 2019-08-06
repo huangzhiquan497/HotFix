@@ -1,23 +1,25 @@
 using System;
+using LitJson;
 using UnityEngine;
+using UnityEngine.UI;
 using XLua;
 
 namespace XLuaFramework
 {
-    [LuaCallCSharp]
     public class TestLua : MonoBehaviour
     {
+        public Button _btn;
+        [SerializeField] private TextAsset _textAsset;
+
         private void Start()
         {
-            Debug.Log("cs start");
+            _btn.onClick.AddListener(TestEvent);
         }
 
-        [CSharpCallLua]
-        public delegate void LuaExecute();
-
-        public void ExecuteEvent(LuaExecute events)
+        private void TestEvent()
         {
-            events?.Invoke();
+            var jsonData = JsonMapper.ToObject(_textAsset.text);
+            LuaHelper.ExecuteEvent(jsonData["events"]);
         }
     }
 }

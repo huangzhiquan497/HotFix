@@ -31,9 +31,10 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 3, 1, 1);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 4, 1, 1);
 			Utils.RegisterFunc(L, Utils.CLS_IDX, "AddEventListener", _m_AddEventListener_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "RemoveEventsListener", _m_RemoveEventsListener_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "ExecuteEvent", _m_ExecuteEvent_xlua_st_);
             
 			
             
@@ -87,9 +88,9 @@ namespace XLua.CSObjectWrap
                 
                 {
                     string _eventType = LuaAPI.lua_tostring(L, 1);
-                    System.Action<LitJson.JsonData> _eventData = translator.GetDelegate<System.Action<LitJson.JsonData>>(L, 2);
+                    System.Action<string> _action = translator.GetDelegate<System.Action<string>>(L, 2);
                     
-                    XLuaFramework.LuaHelper.AddEventListener( _eventType, _eventData );
+                    XLuaFramework.LuaHelper.AddEventListener( _eventType, _action );
                     
                     
                     
@@ -111,8 +112,35 @@ namespace XLua.CSObjectWrap
             
                 
                 {
+                    string _eventType = LuaAPI.lua_tostring(L, 1);
                     
-                    XLuaFramework.LuaHelper.RemoveEventsListener(  );
+                    XLuaFramework.LuaHelper.RemoveEventsListener( _eventType );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_ExecuteEvent_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+            
+            
+            
+                
+                {
+                    LitJson.JsonData _data = (LitJson.JsonData)translator.GetObject(L, 1, typeof(LitJson.JsonData));
+                    
+                    XLuaFramework.LuaHelper.ExecuteEvent( _data );
                     
                     
                     
@@ -147,7 +175,7 @@ namespace XLua.CSObjectWrap
         {
 		    try {
                 ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
-			    XLuaFramework.LuaHelper._eventMaps = (System.Collections.Generic.Dictionary<string, System.Action<LitJson.JsonData>>)translator.GetObject(L, 1, typeof(System.Collections.Generic.Dictionary<string, System.Action<LitJson.JsonData>>));
+			    XLuaFramework.LuaHelper._eventMaps = (System.Collections.Generic.Dictionary<string, System.Action<string>>)translator.GetObject(L, 1, typeof(System.Collections.Generic.Dictionary<string, System.Action<string>>));
             
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);

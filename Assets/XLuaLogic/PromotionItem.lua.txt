@@ -1,0 +1,31 @@
+require('Define')
+
+PromotionItem = { Price = "",
+                  Coins = 0,
+                  CoinsAmountBefore = 0,
+                  Gems = 0,
+                  GemsAmountBefore = 0,
+                  Vip = 0,
+                  Sku = "",
+                  Sales = "" };
+
+PromotionItem.__index = PromotionItem;
+
+function PromotionItem:New(data)
+    local o = {};
+    setmetatable(o, PromotionItem);
+    --local data = Rapidjson.decode(json);
+    o.Price = data.price;
+    o.Coins = data.coins;
+    o.CoinsAmountBefore = data.coin_amount_before;
+    o.Gems = data.gems;
+    o.GemsAmountBefore = data.gems_amount_before;
+    o.Vip = data.vip;
+    o.Sku = data.sku;
+    o.Sales = data.sales;
+    return o;
+end
+
+function PromotionItem:RequestPurchase()
+    PromotionGiftManager.Purchase(self.Sku);
+end

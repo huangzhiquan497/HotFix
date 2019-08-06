@@ -19,9 +19,6 @@ namespace XLuaFramework
             LuaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
             LuaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
             LuaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
-
-            //这里相当于初始化路径 也就是 Application.dataPath 文件夹下 .lua的文件都会被初始化加载
-            LuaEnv.DoString($"package.path = '{Application.persistentDataPath}/?.lua.txt'");
         }
 
 

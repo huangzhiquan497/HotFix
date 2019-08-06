@@ -1,0 +1,8 @@
+require('Define')
+
+PromotionGiftManager = {}
+
+function PromotionGiftManager.Purchase(sku)
+    print("lua request purchase=====>" .. sku)
+    CSXLua.PromotionGiftHelper(sku);
+end

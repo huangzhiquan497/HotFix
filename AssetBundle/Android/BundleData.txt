@@ -13,6 +13,7 @@
             "Assets/XLuaLogic/LoaderTest.lua.txt",            
             "Assets/XLuaLogic/Main.lua.txt",            
             "Assets/XLuaLogic/TestHotfix.lua.txt",            
+            "Assets/XLuaLogic/TestPeople.lua.txt",            
             "Assets/XLuaLogic/UITest.lua.txt"
         ],        
         "includeGUIDs" : 
@@ -26,6 +27,7 @@
             "50316759300a06c4b82ec3b1489d7872",            
             "cb8ebc3dad39a384aae6d80d4191c862",            
             "5c696f7541d0c044c9f5c34408d57ba7",            
+            "07f13aba04be4a6bbf939d107cb5d647",            
             "dc20285e42ff52b429138808c002ac17"
         ],        
         "sceneBundle" : false,        

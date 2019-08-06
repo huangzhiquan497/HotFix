@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3542827410
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 391302c85ce12e566d2fc523f6a44915
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/XLuaLogic/Data/TestHotfix.lua.txt
+- Assets/XLuaLogic/Data/GameInit.lua.txt
+- Assets/XLuaLogic/Controller/Define.lua.txt
+- Assets/XLuaLogic/Data/LoaderTest.lua.txt
+- Assets/XLuaLogic/Data/TestPeople.lua.txt
+- Assets/XLuaLogic/Data/Main.lua.txt
+- Assets/XLuaLogic/Data/UITest.lua.txt
+Dependencies: []

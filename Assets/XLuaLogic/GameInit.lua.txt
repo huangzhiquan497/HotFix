@@ -33,16 +33,15 @@ function GameInit.Init()
     Ra:printArea()
     Re:printArea()
 
-    ------------------------------------
-    local rapidjson = require 'rapidjson'
-    local s = rapidjson.encode(Tony)
-    print('json', s)
-    local a = rapidjson.decode(s);
-    print(a.Name)
-
+    local LuaHelper = CS.XLuaFramework.LuaHelper;
+    LuaHelper.AddEventListener("test", this.Event);
 
 end
 
-function Event()
-    print("execute event")
+function GameInit.Event(json)
+
+    print("json>>>>" .. json)
+    local rapidjson = require 'rapidjson';
+    local a = rapidjson.decode(json);
+    print("execute event" .. a.type .. ">>>>>" .. a.Name .. ">>>>>" .. a.Age);
 end

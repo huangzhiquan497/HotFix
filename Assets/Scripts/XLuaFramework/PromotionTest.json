@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "type": "promotion_gift",
+      "skus": [
+        {
+          "coins": 39900000,
+          "level": 3,
+          "wares_id": 11,
+          "coin_amount_before": 24000000,
+          "gems_amount_before": 0,
+          "gems": 35,
+          "price": "¥18",
+          "sku": "com.bbg.slot.panda.special.mix1_1.299",
+          "type": 2,
+          "vip": 550,
+          "lottery": 2,
+          "promotion_tag": 11,
+          "sku_type": "default",
+          "real_vip": 550,
+          "item": 10,
+          "sales": "200%"
+        },
+        {
+          "coins": 234900000,
+          "level": 4,
+          "wares_id": 12,
+          "coin_amount_before": 139800000,
+          "gems_amount_before": 88,
+          "gems": 155,
+          "price": "¥68",
+          "sku": "com.bbg.slot.panda.special.mix1_2.999",
+          "type": 2,
+          "vip": 550,
+          "lottery": 6,
+          "promotion_tag": 12,
+          "sku_type": "default",
+          "real_vip": 550,
+          "item": 10,
+          "sales": "300%"
+        },
+        {
+          "coins": 689900000,
+          "level": 5,
+          "wares_id": 13,
+          "coin_amount_before": 389800000,
+          "gems_amount_before": 0,
+          "gems": 380,
+          "price": "¥128",
+          "sku": "com.bbg.slot.panda.special.mix1_3.1999",
+          "type": 2,
+          "vip": 550,
+          "lottery": 18,
+          "promotion_tag": 13,
+          "sku_type": "default",
+          "real_vip": 550,
+          "item": 10,
+          "sales": "400%"
+        }
+      ],
+      "end_time": 30
+    }
+  ]
+}
