@@ -7,41 +7,43 @@ local this = GameInit;
 function GameInit.Init()
 
     print("game init");
-    require 'UITest';
-    CS.UnityEngine.Object.Instantiate(CS.UnityEngine.Resources.Load("UITestPanel"));
-    require 'TestHotfix';
+    --require 'UITest';
+    --CS.UnityEngine.Object.Instantiate(CS.UnityEngine.Resources.Load("UITestPanel"));
+    --require 'TestHotfix';
+    --
+    --TestHotfix.Add(4, 3);
+    --TestHotfix.DOHotfix();
+    --TestHotfix.Add(4, 3);
+    --require("TestPeople");
+    --local Tony = TestPeople:New("Tony", 20);
+    --local Tim = TestPeople:New("Tim", 40);
+    --local Jeny = TestPeople:New();
+    --print(Tony.Name .. "<====>" .. Tony.Age);
+    --print(Tim.Name .. "<====>" .. Tim.Age);
+    --print(Jeny.Name .. "<====>" .. Jeny.Age);
+    ----print(TestPeople.Name .. "<====>" .. TestPeople.Age);
+    --Tony:ModifyName("new tony", 10);
+    --Jeny:ModifyName("Jeny", 100);
+    --print(Tony.Name .. "<====>" .. Tony.Age);
+    --print(Tim.Name .. "<====>" .. Tim.Age);
+    --print(Jeny.Name .. "<====>" .. Jeny.Age);
+    --
+    --local Ra = Rectangle:new(nil, 10, 20);
+    --local Re = Rectangle:new(nil, 5, 20);
+    --Ra:printArea()
+    --Re:printArea()
 
-    TestHotfix.Add(4, 3);
-    TestHotfix.DOHotfix();
-    TestHotfix.Add(4, 3);
-    require("TestPeople");
-    local Tony = TestPeople:New("Tony", 20);
-    local Tim = TestPeople:New("Tim", 40);
-    local Jeny = TestPeople:New();
-    print(Tony.Name .. "<====>" .. Tony.Age);
-    print(Tim.Name .. "<====>" .. Tim.Age);
-    print(Jeny.Name .. "<====>" .. Jeny.Age);
-    --print(TestPeople.Name .. "<====>" .. TestPeople.Age);
-    Tony:ModifyName("new tony", 10);
-    Jeny:ModifyName("Jeny", 100);
-    print(Tony.Name .. "<====>" .. Tony.Age);
-    print(Tim.Name .. "<====>" .. Tim.Age);
-    print(Jeny.Name .. "<====>" .. Jeny.Age);
-
-    local Ra = Rectangle:new(nil, 10, 20);
-    local Re = Rectangle:new(nil, 5, 20);
-    Ra:printArea()
-    Re:printArea()
-
-    local LuaHelper = CS.XLuaFramework.LuaHelper;
-    LuaHelper.AddEventListener("test", this.Event);
+    LuaHelper.AddEventListener("promotion_gift", this.OpenPromotionGift);
 
 end
 
-function GameInit.Event(json)
+function GameInit.OpenPromotionGift(json)
 
-    print("json>>>>" .. json)
-    local rapidjson = require 'rapidjson';
-    local a = rapidjson.decode(json);
-    print("execute event" .. a.type .. ">>>>>" .. a.Name .. ">>>>>" .. a.Age);
+    --print("json>>>>" .. json)
+    --local rapidjson = require 'rapidjson';
+    --local a = rapidjson.decode(json);
+    --print("execute event" .. a.type .. ">>>>>" .. a.Name .. ">>>>>" .. a.Age);
+    require("PromotionGift") 
+    LuaHelper.ResourceLoad("PromotionGiftPanel")
+    PromotionGift:Show(json)
 end

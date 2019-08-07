@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f296337fd7780d143a1b550b0a79cc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InDevelop: 0
+  InDevelop: 1
 --- !u!114 &531105785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _btn: {fileID: 699554753}
-  _textAsset: {fileID: 4900000, guid: c776849e105b41ba9c74170db6b3986d, type: 3}
+  _textAsset: {fileID: 4900000, guid: b6a75a6e0b264100b93bfed2623c6067, type: 3}
 --- !u!1 &699554751
 GameObject:
   m_ObjectHideFlags: 0

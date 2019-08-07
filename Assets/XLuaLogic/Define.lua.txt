@@ -1,4 +1,5 @@
 GameObject = CS.UnityEngine.GameObject();
 Vector3 = CS.UnityEngine.Vector3;
 CSXLua = CS.XLuaFramework;
+LuaHelper = CS.XLuaFramework.LuaHelper;
 Rapidjson = require 'rapidjson';

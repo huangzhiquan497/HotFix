@@ -31,8 +31,9 @@ namespace XLua.CSObjectWrap
 			Utils.EndObjectRegister(type, L, translator, null, null,
 			    null, null, null);
 
-		    Utils.BeginClassRegister(type, L, __CreateInstance, 4, 1, 1);
-			Utils.RegisterFunc(L, Utils.CLS_IDX, "AddEventListener", _m_AddEventListener_xlua_st_);
+		    Utils.BeginClassRegister(type, L, __CreateInstance, 5, 1, 1);
+			Utils.RegisterFunc(L, Utils.CLS_IDX, "ResourceLoad", _m_ResourceLoad_xlua_st_);
+            Utils.RegisterFunc(L, Utils.CLS_IDX, "AddEventListener", _m_AddEventListener_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "RemoveEventsListener", _m_RemoveEventsListener_xlua_st_);
             Utils.RegisterFunc(L, Utils.CLS_IDX, "ExecuteEvent", _m_ExecuteEvent_xlua_st_);
             
@@ -75,6 +76,30 @@ namespace XLua.CSObjectWrap
         
         
         
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _m_ResourceLoad_xlua_st_(RealStatePtr L)
+        {
+		    try {
+            
+            
+            
+                
+                {
+                    string _prefabName = LuaAPI.lua_tostring(L, 1);
+                    
+                    XLuaFramework.LuaHelper.ResourceLoad( _prefabName );
+                    
+                    
+                    
+                    return 0;
+                }
+                
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            
+        }
         
         [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
         static int _m_AddEventListener_xlua_st_(RealStatePtr L)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using XLua;
 
 namespace XLuaFramework
@@ -15,8 +14,14 @@ namespace XLuaFramework
             typeof(Func<double, double, double>),
             typeof(Action<string>),
             typeof(Action<double>),
+            typeof(Action<long>),
             typeof(UnityEngine.Events.UnityAction),
-            typeof(System.Collections.IEnumerator)
+            typeof(System.Collections.IEnumerator),
+        };
+
+        [LuaCallCSharp] 
+        public static List<Type> LuaCallCSharp = new List<Type>()
+        {
         };
     }
 }

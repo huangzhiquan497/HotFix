@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LitJson;
 using UnityEngine;
 using XLua;
+using Object = UnityEngine.Object;
 
 namespace XLuaFramework
 {
@@ -11,6 +12,10 @@ namespace XLuaFramework
     {
         public static Dictionary<string, Action<string>> _eventMaps = new Dictionary<string, Action<string>>();
 
+        public static void ResourceLoad(string prefabName)
+        {
+            Object.Instantiate(Resources.Load<GameObject>(prefabName));
+        }
 
         public static void AddEventListener(string eventType, Action<string> action)
         {
