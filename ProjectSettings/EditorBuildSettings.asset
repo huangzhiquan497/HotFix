@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scripts/XLuaFramework/Start.unity
     guid: bb309668c59fa6641975248cfad5ff1f
   - enabled: 1
-    path: Assets/Scripts/XLuaFramework/Test.unity
+    path: Assets/Scripts/XLuaFramework/Main.unity
     guid: 0765a3c62d092d1448e5df50e8c68811
   m_configObjects: {}

@@ -1,0 +1,46 @@
+require('Common/Define')
+
+PromotionGiftManager = {};
+local this = PromotionGiftManager;
+
+local ItemDatas;
+local EndTime;
+
+function PromotionGiftManager.Update(json)
+    ItemDatas = {}
+    local data = Rapidjson.decode(json);
+
+    local skus;
+    
+    if data.skus then
+        skus = data.skus
+    else
+        skus = data.promotions
+    end
+    
+    if data.end_time then
+        if CS.UnityEngine.Application.isEditor then
+            EndTime = data.end_time + CSXLua.Util.ServerTime.Now;
+        else
+            EndTime = data.end_time;
+        end
+    end
+
+    require("Promotion/PromotionItem")
+
+    for i = 1, #skus do
+        local item
+        if #ItemDatas >= i then
+            item = ItemDatas[i];
+        else
+            item = require("Promotion/PromotionItem").New();
+            ItemDatas[#ItemDatas + 1] = item;
+        end
+
+        item:SetData(skus[i]);
+    end
+end
+
+function PromotionGiftManager.GetDatas()
+    return ItemDatas, EndTime;
+end

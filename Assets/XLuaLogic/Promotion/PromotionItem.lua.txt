@@ -1,0 +1,30 @@
+require('Common/Define')
+
+local PromotionItem = BaseClass()
+
+function PromotionItem:DefaultVar()
+    return {
+        Price = "",
+        Coins = 0,
+        CoinsAmountBefore = 0,
+        Gems = 0,
+        GemsAmountBefore = 0,
+        Vip = 0,
+        Sku = "",
+        Sales = "",
+    }
+end
+
+function PromotionItem:SetData(data)
+    self.Price = data.price;
+    self.Coins = data.coins;
+    self.CoinsAmountBefore = data.coin_amount_before;
+    self.Gems = data.gems;
+    self.GemsAmountBefore = data.gems_amount_before;
+    self.Vip = data.vip;
+    self.Sku = data.sku;
+    self.Sales = data.sales;
+end
+
+--PromotionItem.Constructor = Constructor
+return PromotionItem

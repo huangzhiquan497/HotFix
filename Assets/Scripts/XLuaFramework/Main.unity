@@ -289,6 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _btn: {fileID: 699554753}
   _textAsset: {fileID: 4900000, guid: b6a75a6e0b264100b93bfed2623c6067, type: 3}
+  _textAsset1: {fileID: 4900000, guid: 124aea1726824dac85b36eb87bc504fb, type: 3}
 --- !u!1 &699554751
 GameObject:
   m_ObjectHideFlags: 0

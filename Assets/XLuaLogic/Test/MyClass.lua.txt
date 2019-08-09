@@ -1,0 +1,11 @@
+require('Common/Define')
+local MyClass = BaseClass();
+
+function MyClass:Constructor(a)
+    self.x = a;
+end
+function MyClass:getX()
+    return self.x;
+end
+return MyClass
+

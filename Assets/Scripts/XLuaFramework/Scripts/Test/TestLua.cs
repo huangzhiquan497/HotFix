@@ -10,10 +10,12 @@ namespace XLuaFramework
     {
         public Button _btn;
         [SerializeField] private TextAsset _textAsset;
+        [SerializeField] private TextAsset _textAsset1;
 
         private void Start()
         {
             _btn.onClick.AddListener(TestEvent);
+            PromotionGiftHelper.RefreshData = _textAsset1.text;
         }
 
         private void TestEvent()

@@ -1,0 +1,30 @@
+require('Common/Define')
+
+local PromotionItemView = BaseClass()
+local EventSystem = require "Common/EventSystem"
+
+local function Constructor(self)
+    self.Action = EventSystem.New();
+end
+
+function PromotionItemView:Init(transform)
+    self.transform = transform;
+
+    local btn = self.transform:Find("BuyBtn"):GetComponent(typeof(CS.UnityEngine.UI.Button));
+    btn.onClick:RemoveAllListeners();
+    btn.onClick:AddListener( function() self.Action:Fire(self, self.item.Sku) end );
+end
+
+function PromotionItemView:SetData(item)
+    self.item = item;
+    self.transform:Find("Coin"):GetComponent(typeof(CS.UnityEngine.UI.Text)).text = item.Coins;
+    self.transform:Find("CoinBefore"):GetComponent(typeof(CS.UnityEngine.UI.Text)).text = item.CoinsAmountBefore;
+    self.transform:Find("Gem"):GetComponent(typeof(CS.UnityEngine.UI.Text)).text = item.Gems;
+    self.transform:Find("Vip"):GetComponent(typeof(CS.UnityEngine.UI.Text)).text = item.Vip;
+    self.transform:Find("Sales"):GetComponent(typeof(CS.UnityEngine.UI.Text)).text = item.Sales;
+    self.transform:Find("BuyBtn/Price"):GetComponent(typeof(CS.UnityEngine.UI.Text)).text = item.Price;
+
+end
+
+PromotionItemView.Constructor = Constructor;
+return PromotionItemView

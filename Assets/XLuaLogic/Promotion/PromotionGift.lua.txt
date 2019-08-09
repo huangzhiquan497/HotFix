@@ -1,0 +1,86 @@
+require('Common/Define');
+PromotionGift = {  }
+local this = PromotionGift;
+
+local gameObject;
+local transform;
+local EndTime;
+local PurchaseButtons = {};
+local ItemViews = {};
+
+function PromotionGift.awake(obj)
+    gameObject = obj;
+    transform = obj.transform;
+end
+
+function PromotionGift.start()
+
+    transform:Find("Panel/Close"):GetComponent(typeof(CS.UnityEngine.UI.Button)).onClick:AddListener(
+            function()
+                CS.UnityEngine.Object.Destroy(gameObject);
+            end);
+end
+
+local TimerObserver;
+function PromotionGift:ResetCountDown()
+    if TimerObserver then
+        TimerObserver:Dispose()
+    end
+    TimerObserver = CSXLua.Util.ServerTime:ObserveCountDown(EndTime, this.CalculateCountDown, this.OnExpired, gameObject)
+end
+
+function PromotionGift.CalculateCountDown(leftTime)
+    local countDownTxt = transform:Find("Panel/CountDown"):GetComponent(typeof(CS.UnityEngine.UI.Text));
+    countDownTxt.text = CSXLua.LongExtension.DateTimeTextMaxWithHour(leftTime)
+end
+
+function PromotionGift.OnExpired()
+
+    local expiredHintObj = transform:Find("Panel/Expired").gameObject;
+    expiredHintObj:SetActive(true);
+
+    for i = 1, #PurchaseButtons do
+        PurchaseButtons[i].interactable = false;
+    end
+end
+
+function PromotionGift.ondestroy()
+
+    print("on destory")
+end
+
+function PromotionGift:ShowOrRefresh()
+    local itemDatas;
+    itemDatas, EndTime = PromotionGiftManager.GetDatas()
+    this:ResetCountDown()
+    for j = 1, #itemDatas do
+
+        local itemTrf = transform:Find("Panel/Item" .. j);
+        local itemView;
+
+        if #ItemViews >= j then
+            itemView = ItemViews[j];
+
+        else
+            itemView = require("Promotion/PromotionItemView").New();
+            itemView.Action:Bind(itemView, this.Purchase, self);
+            ItemViews[#ItemViews + 1] = itemView;
+            local purchaseBtn = itemTrf:GetComponentInChildren(typeof(CS.UnityEngine.UI.Button))
+            PurchaseButtons[#PurchaseButtons + 1] = purchaseBtn;
+        end
+
+        itemView:Init(itemTrf);
+        itemView:SetData(itemDatas[j]);
+    end
+end
+
+function PromotionGift:Purchase(sku)
+    CSXLua.PromotionGiftHelper.Purchase(sku, this.OnPurchaseSuccess);
+end
+
+function PromotionGift:OnPurchaseSuccess()
+    PromotionGiftManager.Update(CSXLua.PromotionGiftHelper.RefreshData);
+    this:ShowOrRefresh()
+end
+
+

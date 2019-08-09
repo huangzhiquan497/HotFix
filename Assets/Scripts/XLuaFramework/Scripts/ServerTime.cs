@@ -14,7 +14,7 @@ namespace XLuaFramework
         long Left(long endTime);
         IObservable<long> ObserveCountDown(long endTime); //一次性倒计时 时间到触发OnCompleted
 
-        IObservable<long> ObserveCountDown(long endTime, Action<long> onNext, Action onComplete, GameObject gameObject);
+        IDisposable ObserveCountDown(long endTime, Action<long> onNext, Action onComplete, GameObject gameObject);
         void Set(long time);
     }
 
@@ -52,12 +52,13 @@ namespace XLuaFramework
             return observer;
         }
 
-        public IObservable<long> ObserveCountDown(long endTime, Action<long> onNext, Action onComplete,
+        public IDisposable ObserveCountDown(long endTime, Action<long> onNext, Action onComplete,
             GameObject gameObject)
         {
-            var observer = ObservableNow.Select(now => endTime - now).TakeWhile(left => left > 0);
-            observer.Subscribe(left => onNext?.Invoke(left), () => onComplete?.Invoke()).AddTo(gameObject);
-            return observer;
+            var disposable = ObservableNow.Select(now => endTime - now).TakeWhile(left => left > 0)
+                .Subscribe(left => onNext?.Invoke(left), () => onComplete?.Invoke());
+            disposable.AddTo(gameObject);
+            return disposable;
         }
 
         public void Set(long time)

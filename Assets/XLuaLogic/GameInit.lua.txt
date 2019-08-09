@@ -1,4 +1,4 @@
-require "Define"
+require "Common/Define"
 
 GameInit = {};
 
@@ -7,6 +7,24 @@ local this = GameInit;
 function GameInit.Init()
 
     print("game init");
+    this.Test()
+    -----------------------------
+
+
+    LuaHelper.AddEventListener("promotion_gift", this.OpenPromotionGift);
+
+
+end
+
+function GameInit.OpenPromotionGift(json)
+    require("Promotion/PromotionGift")
+    require("Promotion/PromotionGiftManager")
+    PromotionGiftManager.Update(json)
+    LuaHelper.ResourceLoad("PromotionGiftPanel")
+    PromotionGift:ShowOrRefresh()
+end
+
+function GameInit.Test()
     --require 'UITest';
     --CS.UnityEngine.Object.Instantiate(CS.UnityEngine.Resources.Load("UITestPanel"));
     --require 'TestHotfix';
@@ -32,18 +50,11 @@ function GameInit.Init()
     --local Re = Rectangle:new(nil, 5, 20);
     --Ra:printArea()
     --Re:printArea()
-
-    LuaHelper.AddEventListener("promotion_gift", this.OpenPromotionGift);
-
-end
-
-function GameInit.OpenPromotionGift(json)
-
-    --print("json>>>>" .. json)
-    --local rapidjson = require 'rapidjson';
-    --local a = rapidjson.decode(json);
-    --print("execute event" .. a.type .. ">>>>>" .. a.Name .. ">>>>>" .. a.Age);
-    require("PromotionGift") 
-    LuaHelper.ResourceLoad("PromotionGiftPanel")
-    PromotionGift:Show(json)
+    local MyClass = require('Test/MyClass')
+    local instance_a = MyClass.New()
+    local instance_b = MyClass.New()
+    instance_a:Constructor(3);
+    instance_b:Constructor(4);
+    print(instance_a, instance_a:getX(), instance_a.Constructor)
+    print(instance_b, instance_b:getX(), instance_b.Constructor)
 end
