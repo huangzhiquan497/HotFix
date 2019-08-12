@@ -51,6 +51,7 @@
 	    <type fullname="Tutorial.BaseClass" preserve="all"/>
 		<type fullname="Tutorial.TestEnum" preserve="all"/>
 		<type fullname="Tutorial.DerivedClass" preserve="all"/>
+		<type fullname="Tutorial.DerivedClass+TestEnumInner" preserve="all"/>
 		<type fullname="Tutorial.ICalc" preserve="all"/>
 		<type fullname="Tutorial.DerivedClassExtensions" preserve="all"/>
 		<type fullname="XLuaTest.LuaBehaviour" preserve="all"/>
@@ -71,7 +72,6 @@
 		<type fullname="XLuaFramework.Injection" preserve="all"/>
 		<type fullname="XLuaFramework.LuaViewBehaviour" preserve="all"/>
 		<type fullname="XLuaFramework.PromotionGiftHelper" preserve="all"/>
-		<type fullname="Tutorial.DerivedClass+TestEnumInner" preserve="all"/>
 		
 	</assembly>
 

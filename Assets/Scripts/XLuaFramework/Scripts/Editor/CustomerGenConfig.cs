@@ -16,7 +16,7 @@ namespace XLuaFramework
             typeof(Action<double>),
             typeof(Action<long>),
             typeof(UnityEngine.Events.UnityAction),
-            typeof(System.Collections.IEnumerator),
+            typeof(IEnumerator),
         };
 
         [LuaCallCSharp] 
