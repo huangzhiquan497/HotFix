@@ -7,5 +7,9 @@ end
 function MyClass:getX()
     return self.x;
 end
+
+function MyClass:Add(a, b)
+    return a + b;
+end
 return MyClass
 

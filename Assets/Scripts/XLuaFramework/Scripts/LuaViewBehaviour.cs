@@ -40,6 +40,13 @@ namespace XLuaFramework
         private LuaTable scriptEnv;
         private LuaEnv luaEnv;
 
+        [CSharpCallLua]
+        public class MyClass
+        {
+            
+        }
+
+        private MyClass _myClass;
         private void Awake()
         {
             luaEnv = LuaManager.LuaEnv;
@@ -68,6 +75,8 @@ namespace XLuaFramework
             luaUpdate = scriptEnv.GetInPath<delLuaUpdate>(prefabName + ".update");
             luaOnDestroy = scriptEnv.GetInPath<delLuaOnDestroy>(prefabName + ".ondestroy");
 
+            _myClass = luaEnv.Global.Get<MyClass>("MyClass");
+            Debug.Log(_myClass == null);
             luaAwake?.Invoke(gameObject);
         }
 

@@ -16,9 +16,9 @@ namespace XLuaFramework
 
             //第三方库
             LuaEnv.AddBuildin("rapidjson", XLua.LuaDLL.Lua.LoadRapidJson);
-            LuaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
-            LuaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
-            LuaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
+//            LuaEnv.AddBuildin("lpeg", XLua.LuaDLL.Lua.LoadLpeg);
+//            LuaEnv.AddBuildin("pb", XLua.LuaDLL.Lua.LoadLuaProfobuf);
+//            LuaEnv.AddBuildin("ffi", XLua.LuaDLL.Lua.LoadFFI);
         }
 
 
